@@ -35,7 +35,7 @@ C++11
 ## Features
 ![](https://i.imgur.com/SLOpxQt.png)
 
-## Reused code
+## Reference
 * Beej's Code: http://www.beej.us/guide/bgnet/
     * Chapter5 System Calls or Bust:
       - create/bind/connect/listen/accept TCP socket
