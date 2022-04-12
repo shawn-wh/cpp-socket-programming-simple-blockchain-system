@@ -17,11 +17,11 @@ There are three nodes(Backend Servers) on the blockchain, and each node store a 
 ## Illustrations
 ![](https://i.imgur.com/Vi9717L.png)
 
-* Client (clientA, clientB)
+* **Client (clientA, clientB)**
 Two clients issue a request for finding their current amount of coins in their account, transfer coins to another user, get its own statistical report and update a file statement with all transactions in order. These requests will be sent to a main server over TCP connection, and the main server will interact with three backend servers for pulling information and data processing.
-* Main Server (serverM)
+* **Main Server (serverM)**
 The main server will connect to server A, B and C over UDP. Requesting the transaction information from backend servers, the main server can find out the current balance of the user, transfer money from one user to another, generate statistical report of user's transactions and store all transactions in a file statement on the Main server.
-* Backend Server (serverA, serverB, serverC)
+* **Backend Server (serverA, serverB, serverC)**
 Server A has access to block1.txt, server B has access to block2.txt and server C has access to block3.txt, and each text file has a group of transactions that are stored without order.
 
 ## Technologies
