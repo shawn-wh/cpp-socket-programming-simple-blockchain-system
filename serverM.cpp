@@ -29,6 +29,7 @@
 #include <string> 
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 using namespace std;
 
 #define TCP_SERVER_HOST "127.0.0.1"
