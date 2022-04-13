@@ -37,7 +37,6 @@ C++11
 ![](https://i.imgur.com/SLOpxQt.png)
 
 ## Demo
-![Demo](https://youtu.be/uVTw2MP3JQw)
 
 ## Reference
 * Beej's Code: http://www.beej.us/guide/bgnet/
