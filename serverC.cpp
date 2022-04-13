@@ -118,7 +118,7 @@ void sendto_client(int client_sockfd, struct sockaddr_in client_addr, string msg
     strcpy(send_buf, msg.c_str());
     int res = sendto(client_sockfd, send_buf, sizeof(send_buf), 0, (struct sockaddr *) &client_addr, sizeof(client_addr));
     socket_error_checking(res, "UDP sendto");
-    cout << "The" << SERVER_NAME << " finished sending the response to the Main Server." << endl;
+    cout << "The " << SERVER_NAME << " finished sending the response to the Main Server." << endl;
 }
 
 /**
@@ -158,6 +158,9 @@ void read_file(vector<Data> *data_list) {
     fstream myfile(FILE_NAME);
     if(myfile.is_open()) {
         while (getline(myfile, line)) {
+            if (line == "") {
+                continue;
+            }
             Data data(line);
             data_list->push_back(data);
         }
@@ -174,7 +177,7 @@ void read_file(vector<Data> *data_list) {
 void write_file(string new_transaction) {
     ofstream myfile;
     myfile.open(FILE_NAME, ios::app);
-    myfile << endl << new_transaction;
+    myfile << new_transaction << endl;
     myfile.close();
 }
 

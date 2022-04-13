@@ -437,11 +437,12 @@ void check_balance(int udp_client_sockfd, int tcp_child_sockfd, string username,
     if (data_list.empty()) {
         msg = "Unable to proceed with the request as \"" + username + "\" is not part of the network.";
         cout << "Username was not found on database." << endl;
+        tcp_send(tcp_child_sockfd, msg);
     } else {
         msg = "The current balance of \"" + username + "\" is : " + to_string(calculate_balance(username, data_list)) + " alicoins.";
+    	tcp_send(tcp_child_sockfd, msg);
+    	cout << "The main server sent the current balance to " << port_map.at(get_port(tcp_child_sockfd)) << "." << endl;
     }
-    tcp_send(tcp_child_sockfd, msg);
-    cout << "The main server sent the current balance to " << port_map.at(get_port(tcp_child_sockfd)) << "." << endl;
 }
 
 /**
@@ -458,7 +459,6 @@ void get_records(int udp_client_sockfd, int tcp_child_sockfd, vector<struct sock
  * get the statistics list of all the users that the client has made transactions with
  */ 
 void get_stats(int udp_client_sockfd, int tcp_child_sockfd, string username, vector<struct sockaddr_in> backend_addr_list) {
-    cout << "in the get stats" << endl;
     string msg = "";
     vector<string> username_transaction_list = udp_communicate_with_servers(udp_client_sockfd, "INQUIRY," + username , backend_addr_list, "STATS");
     vector<string> stats_list = gen_stats_list(username_transaction_list, username);
@@ -558,8 +558,10 @@ int main(int argc, char *argv[]) {
                     int tcp_child_sockfd = pfds[i].fd;
                     string recv_msg = tcp_recv(tcp_child_sockfd);
                     vector<string> operation = parse_string(recv_msg, ',');
-                    vector<string> argument = parse_string(operation[1], ' ');
-
+                    vector<string> argument;
+                    if (operation.size() > 1) {
+                        argument = parse_string(operation[1], ' ');
+                    }
                     if (operation[0] == "BALANCE") {
                         check_balance(udp_client_sockfd, tcp_child_sockfd, argument[0], backend_addr_list);
                     } else if (operation[0] == "TXLIST") {
