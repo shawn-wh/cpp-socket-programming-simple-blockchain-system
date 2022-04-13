@@ -9,8 +9,8 @@ Shawn Huang (April 2022)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-* [Reference](#reference)
 * [Demo](#demo)
+* [Reference](#reference)
 
 ## Introduction
 There are three nodes(Backend Servers) on the blockchain, and each node store a group of transactions. While transaction protocol is responsible for updating the digital wallet of each user in the blockchain, for this project I have main server in charge of running the calculations and updating the wallets for each user. Each transaction in the blockchain includes, in the following order, the transaction serial number, sender, receiver, and amount being transferred.
