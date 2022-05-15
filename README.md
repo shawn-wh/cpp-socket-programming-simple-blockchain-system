@@ -1,7 +1,7 @@
 # C++ Socket Programming: Simple blockchain system
 Digital transaction is based on the blockchain, a chain of information blocks where we store all the transactions that have taken place since the start of the system. I implemented a simplified version of the blockchain system for digital transactions with C++ socket programming.
 
-Shawn Huang (April 2022)
+[Demo video](https://youtu.be/uVTw2MP3JQw)
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -35,9 +35,6 @@ C++11
 
 ## Features
 ![](https://i.imgur.com/SLOpxQt.png)
-
-## Demo
-[Demo video](https://youtu.be/uVTw2MP3JQw)
 
 ## Reference
 * Beej's Code: http://www.beej.us/guide/bgnet/
