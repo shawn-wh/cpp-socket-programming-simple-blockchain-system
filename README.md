@@ -9,7 +9,6 @@ Digital transaction is based on the blockchain, a chain of information blocks wh
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-* [Demo](#demo)
 * [Reference](#reference)
 
 ## Introduction
